@@ -24,9 +24,9 @@ runs:
   image: ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
   args:
     - init
-    - ${{input.operator}}
-    - --default-channel=${{input.channel}}
-    - --description=${{input.description}}
-    - --icon=${{input.icon}}
+    - ${{inputs.operator}}
+    - --default-channel=${{inputs.channel}}
+    - --description=${{inputs.description}}
+    - --icon=${{inputs.icon}}
     - --output=json
     - package

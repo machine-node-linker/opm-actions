@@ -10,4 +10,4 @@ runs:
   image: ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
   args:
     - validate
-    - ${{input.catalog}}
+    - ${{inputs.catalog}}
