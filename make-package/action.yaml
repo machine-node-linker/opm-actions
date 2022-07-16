@@ -1,0 +1,32 @@
+name: Make Package File
+description: Creates OPM Package File
+inputs:
+  operator:
+    description: Operator Name
+    required: true
+  description:
+    description: Path to Operator Description File
+    required: false
+    default: ${{github.workspace}}/README.md
+  icon:
+    description: Path to Icon
+    required: false
+    default: ${{github.workspace}}/icon.png
+  channel:
+    description: Default Channel
+    required: false
+    default: stable
+outputs:
+  package:
+    description: JSON Package Data
+runs: 
+  using: docker
+  image: ghcr.io/machine-node-linker/opm-actions:latest
+  args:
+    - init
+    - ${{input.operator}}
+    - --default-channel=${{input.channel}}
+    - --description=${{input.description}}
+    - --icon=${{input.icon}}
+    - --output=json
+    - package

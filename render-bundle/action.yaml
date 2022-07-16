@@ -1,0 +1,17 @@
+name: Make Package File
+description: Creates OPM Bundle File
+inputs:
+  bundle:
+    description: Bundle Image Name
+    required: true
+outputs:
+  bundle:
+    description: JSON Bundle Data
+runs: 
+  using: docker
+  image: ghcr.io/machine-node-linker/opm-actions:latest
+  args:
+    - render
+    - ${{input.bundle}}
+    - --output=json
+    - bundle
