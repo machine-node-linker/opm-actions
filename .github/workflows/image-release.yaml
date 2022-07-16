@@ -40,7 +40,7 @@ jobs:
           dockerfiles: |
             Dockerfile
           image: opm-actions
-          tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.output.version.minor}}"
+          tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.version}}"
 
       - name: Push image
         id: push
