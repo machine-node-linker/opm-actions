@@ -1,4 +1,4 @@
-name: Make Package File
+name: Render Bundle
 description: Creates OPM Bundle File
 inputs:
   bundle:

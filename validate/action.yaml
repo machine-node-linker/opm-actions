@@ -1,0 +1,13 @@
+name: Validate Catalog
+description: Validates OPM Catalog
+inputs:
+  catalog:
+    description: Catalog Directory Path
+    required: false
+    default: catalog
+runs: 
+  using: docker
+  image: ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
+  args:
+    - validate
+    - ${{input.catalog}}
