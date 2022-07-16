@@ -9,7 +9,7 @@ outputs:
     description: JSON Bundle Data
 runs: 
   using: docker
-  image: ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
+  image: docker://ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
   args:
     - render
     - ${{inputs.bundle}}
