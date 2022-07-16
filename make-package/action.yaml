@@ -7,11 +7,11 @@ inputs:
   description:
     description: Path to Operator Description File
     required: false
-    default: /github/workspace/README.md
+    default: ./README.md
   icon:
     description: Path to Icon
     required: false
-    default: /github/workspace/icon.png
+    default: ./icon.png
   channel:
     description: Default Channel
     required: false
