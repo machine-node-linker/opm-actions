@@ -63,7 +63,7 @@ do
         "validate")
             check_file $arg;;
         *)
-            add_args $LAST_ARG $args
+            add_args $LAST_ARG $arg
     esac
 done
 if [ -n $LAST_ARG ]; then
