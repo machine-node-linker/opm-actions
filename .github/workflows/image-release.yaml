@@ -40,7 +40,7 @@ jobs:
             Dockerfile
           context: .src
           oci: true
-          image: opm-actions
+          image: opm
           tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.version.outputs.minor}}"
 
       - name: Push image
