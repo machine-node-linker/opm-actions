@@ -64,6 +64,5 @@ do
 done
 
 ### Set OPM output to github output based on name captured earlier
-echo ::set-output name=$OUT::
-exec /bin/opm ${ARGS[*]}
-
+echo ::set-output name=$OUT::$(/bin/opm ${ARGS[*]})
+exit $?
