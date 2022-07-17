@@ -6,5 +6,7 @@ LABEL org.opencontainers.image.author="https://github.com/machine-node-linker"
 
 COPY --from=src /bin/opm /bin/opm
 COPY entrypoint.sh /bin/
+RUN apk add bash
+
 ENTRYPOINT ["/bin/entrypoint.sh" ]
 

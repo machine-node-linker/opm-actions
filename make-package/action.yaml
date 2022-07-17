@@ -21,7 +21,7 @@ outputs:
     description: JSON Package Data
 runs: 
   using: docker
-  image: docker://ghcr.io/machine-node-linker/opm-actions/opm-actions:v1
+  image: docker://ghcr.io/machine-node-linker/opm-actions/opm:v1
   args:
     - init
     - ${{inputs.operator}}

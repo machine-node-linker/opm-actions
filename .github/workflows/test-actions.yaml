@@ -1,0 +1,31 @@
+name: Test Custom Actions
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    name: Test make-package action
+    runs-on: ubuntu-latest
+    env:
+      operator: test-operator
+      channel: stable 
+    steps:
+      - name: Make Package
+        id: make
+        uses: machine-node-linker/opm-actions/make-package@v1
+        with:
+          operator: ${{env.operator}}
+          channel: ${{env.channel}}
+      - name: validate
+        env:
+          package: ${{fromJSON(steps.make.outputs.package)}}
+        run: |
+          test ${{env.package.schema}} == "olm.package"
+          test ${{env.package.name}} == ${{env.operator}}
+          test ${{env.package.defaultChannel}} == ${{env.channel}}

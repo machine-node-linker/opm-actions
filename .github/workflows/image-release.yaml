@@ -3,8 +3,7 @@ name: Build action image
 on:
   push:
     paths:
-      - Dockerfile
-      - entrypoint.sh
+      - .src
     branches:
       - "main"
 
@@ -23,7 +22,7 @@ jobs:
           namespace: image
           major_pattern: "(Image MAJOR)"
           minor_pattern: "(Image MINOR)"
-          format: "${major}.${minor}+${patch}"
+          format: "${major}.${minor}"
           change_path: "Dockerfile entrypoint.sh"
 
       - name: Tag Release
@@ -37,10 +36,12 @@ jobs:
         id: build
         uses: redhat-actions/buildah-build@v2
         with:
-          dockerfiles: |
+          containerfiles: |
             Dockerfile
+          context: .src
+          oci: true
           image: opm-actions
-          tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.version.output.minor}} v${{steps.version.outputs.major}}.${{steps.version.output.minor}}.${{steps.version.output.patch}}"
+          tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.version.outputs.minor}}"
 
       - name: Push image
         id: push
