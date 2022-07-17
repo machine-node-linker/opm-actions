@@ -4,9 +4,22 @@ on:
   push:
     branches:
       - "main"
+    paths:
+      - make-package
+      - render-bundle
+      - validate    
   pull_request:
     branches:
       - main
+    paths:
+      - make-package
+      - render-bundle
+      - validate    
+  workflow_run:
+    workflows:
+      - Build action image
+    types:
+      - completed
 
 jobs:
   tests:
