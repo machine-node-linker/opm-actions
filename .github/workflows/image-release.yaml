@@ -38,8 +38,8 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            ${{github.workspace}}/src/Dockerfile
-          context: ${{github.workspace}}/.src/
+            .src/Dockerfile
+          context: .src/
           oci: true
           image: opm-actions
           tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.version.outputs.minor}}"
