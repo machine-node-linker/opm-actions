@@ -90,5 +90,5 @@ fi
 output=$(/bin/opm ${ARGS[*]}|jq -crM)
 code=$?
 
-echo "::set-output name=$OUT::'$output'"
+echo "::set-output name=$OUT::$output"
 exit $code
