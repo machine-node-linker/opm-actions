@@ -53,9 +53,9 @@ do
     case $COMMAND in
         "init")
             case $LAST_ARG in
-                "--icon"|"-d")
+                "--icon"|"-i")
                     check_file $arg;;
-                "--description|-d")
+                "--description"|"-d")
                     check_file $arg;;
                 *)
                     add_args $LAST_ARG $arg;;
