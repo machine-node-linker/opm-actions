@@ -87,7 +87,7 @@ if [ ${#ARGS[@]} -eq 0 ]; then
 fi
 ### Set OPM output to github output based on name captured earlier
 
-output=$(/bin/opm ${ARGS[*]})
+output=$(/bin/opm ${ARGS[*]}|jq -crM)
 code=$?
 
 echo "::set-output name=$OUT::'$output'"
