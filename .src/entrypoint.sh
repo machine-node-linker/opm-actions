@@ -3,10 +3,12 @@
 ### Set input args to variable array for manipulation
 IN=($@)
 
+echo ::debug::Received Args: $IN[*]
 
 ### Set OUT to last item in input args
 OUT=${IN[${#IN[@]}-1]}
 
+echo ::debug::Set output variable to $OUT
 ### Unset last arg from IN, removing it from array
 unset 'IN[${#IN[@]}-1]'
 
@@ -25,6 +27,7 @@ function check_file() {
 function add_args() {
     ARGS+=($@)
     LAST_ARG=""
+    echo: ::debug::Updated ARGS: $ARGS[*]
 }
 
 
@@ -64,5 +67,6 @@ do
 done
 
 ### Set OPM output to github output based on name captured earlier
+echo ::debug::Final Args $ARGS[*]
 echo ::set-output name=$OUT::$(/bin/opm ${ARGS[*]})
 exit $?
