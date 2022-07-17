@@ -20,6 +20,7 @@ function check_file() {
     if [ -f $1 ]; then
         add_args $LAST_ARG $1
     else
+        echo "::debug::File $1 not found, skipping $LAST_ARG"
         LAST_ARG=""
     fi
 }
@@ -33,10 +34,10 @@ function add_args() {
 
 for arg in ${IN[*]}
 do
+
     if [[ $arg == @("--"*|-[:alpha:]) ]]; then
         if [ -n $LAST_ARG]; then
             add_args $LAST_ARG
-            continue
         fi
         # IF an arg is the value attached with =, split them
         if [[ "$arg" == *"="* ]]; then
@@ -65,7 +66,9 @@ do
             add_args $LAST_ARG $args
     esac
 done
-
+if [ -n $LAST_ARG ]; then
+    add_args $LAST_ARG
+fi
 ### Set OPM output to github output based on name captured earlier
 echo "::debug::Final Args ${ARGS[*]}"
 echo ::set-output name=$OUT::$(/bin/opm ${ARGS[*]})

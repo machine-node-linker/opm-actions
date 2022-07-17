@@ -36,9 +36,8 @@ jobs:
           operator: ${{env.operator}}
           channel: ${{env.channel}}
       - name: validate
-        env:
-          package: ${{fromJSON(steps.make.outputs.package)}}
+        env: ${{fromJSON(steps.make.outputs.package)}}
         run: |
-          test ${{env.package.schema}} == "olm.package"
-          test ${{env.package.name}} == ${{env.operator}}
-          test ${{env.package.defaultChannel}} == ${{env.channel}}
+          test ${{env.schema}} == "olm.package"
+          test ${{env.name}} == ${{env.operator}}
+          test ${{env.defaultChannel}} == ${{env.channel}}
