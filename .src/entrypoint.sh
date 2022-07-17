@@ -1,9 +1,13 @@
 #!/bin/bash -- 
 
+function debug() {
+    echo "::debug::$@"
+}
+
 ### Set input args to variable array for manipulation
 IN=($@)
 
-echo "::debug::Received Args: ${IN[*]}"
+debug "Received Args: ${IN[*]}"
 
 ### Set OUT to last item in input args
 OUT=${IN[${#IN[@]}-1]}
@@ -20,7 +24,7 @@ function check_file() {
     if [ -f $1 ]; then
         add_args $LAST_ARG $1
     else
-        echo "::debug::File $1 not found, skipping $LAST_ARG"
+        debug "File $1 not found, skipping $LAST_ARG"
         LAST_ARG=""
     fi
 }
@@ -28,7 +32,7 @@ function check_file() {
 function add_args() {
     ARGS+=($@)
     LAST_ARG=""
-    echo "::debug::Updated ARGS: ${ARGS[*]}"
+    debug "Updated ARGS: ${ARGS[*]}"
 }
 
 
@@ -61,15 +65,30 @@ do
                     add_args $LAST_ARG $arg;;
             esac;;
         "validate")
-            check_file $arg;;
+            case $LAST_ARG in
+                "validate")
+                    check_file $arg;;
+                *)
+                    add_args $arg;;
+            esac;;
         *)
-            add_args $LAST_ARG $arg
+            add_args $LAST_ARG $arg;;
     esac
 done
 if [ -n $LAST_ARG ]; then
     add_args $LAST_ARG
 fi
+
+debug "Final Args ${ARGS[*]}"
+
+if [ ${#ARGS[@]} -eq 0 ]; then
+    echo "No Arguements passed to OPM."
+    exit 1
+fi
 ### Set OPM output to github output based on name captured earlier
-echo "::debug::Final Args ${ARGS[*]}"
-echo ::set-output name=$OUT::$(/bin/opm ${ARGS[*]})
-exit $?
+
+output=$(/bin/opm ${ARGS[*]})
+code=$?
+
+echo "::set-output::name=$OUT:$output"
+exit $code
