@@ -7,7 +7,7 @@ inputs:
     default: catalog
 runs: 
   using: docker
-  image: docer://ghcr.io/machine-node-linker/opm-actions:v1
+  image: docker://ghcr.io/machine-node-linker/opm-actions:v1
   args:
     - validate
     - ${{inputs.catalog}}
