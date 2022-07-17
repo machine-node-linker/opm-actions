@@ -38,10 +38,10 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            Dockerfile
-          context: .src
+            ${{github.workspace}}/src/Dockerfile
+          context: ${{github.workspace}}/.src/
           oci: true
-          image: opm
+          image: opm-actions
           tags: "latest v${{steps.version.outputs.major}} v${{steps.version.outputs.major}}.${{steps.version.outputs.minor}}"
 
       - name: Push image
@@ -49,7 +49,7 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ steps.build.outputs.image }}
-          registry: ghcr.io/${{ github.repository }}
+          registry: ghcr.io/${{ github.repository_owner }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
           tags: ${{ steps.build.outputs.tags }}
