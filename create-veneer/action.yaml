@@ -16,7 +16,7 @@ runs:
         cd ${{github.workspace}}
         mkdir -p ${{inputs.catalog}}/${{inputs.operator}}
         cd ${{inputs.catalog}}/${{inputs.operator}}
-        if [ -z ${{inputs.operator}}.semvar-veneer.yaml ]; then
+        if [ ! -f ${{inputs.operator}}.semvar-veneer.yaml ]; then
           cp ${{github.action_path}}/tmplate.yaml ${{inputs.operator}}.semvar-veneer.yaml
         fi
         cd ${{github.workspace}}
