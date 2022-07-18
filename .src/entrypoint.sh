@@ -33,7 +33,7 @@ function check_file() {
     if [ -f $1 ]; then
         debug "Found File $1"
         add_args $LAST_ARG $1
-    elif [ -f ${GITHUB_WORKSPACE}/$1 ]
+    elif [ -f ${GITHUB_WORKSPACE}/$1 ]; then
         debug "Found File ${GITHUB_WORKSPACE}/$1"
         add_args $LAST_ARG "${GITHUB_WORKSPACE}/$1"
     else
