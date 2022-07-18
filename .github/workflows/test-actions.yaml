@@ -3,18 +3,18 @@ name: Test Custom Actions
 on:
   push:
     branches:
-      - "main"
-    paths:
-      - make-package
-      - render-bundle
-      - validate    
+      - main
+    paths-ignore:
+      - ".src/*"
+      - ".github/workflows/image-release.yaml"
+      - ".gitignore"
   pull_request:
     branches:
       - main
-    paths:
-      - make-package
-      - render-bundle
-      - validate    
+    paths-ignore:
+      - ".src/*"
+      - ".github/workflows/image-release.yaml"
+      - ".gitignore"
   workflow_run:
     workflows:
       - Build action image
