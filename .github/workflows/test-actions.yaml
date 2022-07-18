@@ -22,7 +22,7 @@ on:
       - completed
 
 jobs:
-  tests:
+  test-make-package:
     name: Test make-package action
     runs-on: ubuntu-latest
     env:
@@ -38,6 +38,20 @@ jobs:
       - name: validate
         env: ${{fromJSON(steps.make.outputs.package)}}
         run: |
+          set -e
           test ${{env.schema}} == "olm.package"
           test ${{env.name}} == ${{env.operator}}
           test ${{env.defaultChannel}} == ${{env.channel}}
+  test-render-veneer-semver:
+    name: Test render-veneer-semver
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render
+        id: render
+        uses: machine-node-linker/opm-actions/render-veneer-semver@v1
+        with:
+          file: render-veneer-semver/test/test.veneer-semver.yaml
+      - name: confirm output
+        run: |
+          set -e
+          test ${{steps.render.outputs.rendered}} != ""

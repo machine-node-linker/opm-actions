@@ -20,4 +20,4 @@ runs:
           cp ${{github.action_path}}/template.yaml ${{inputs.operator}}.semvar-veneer.yaml
         fi
         cd ${{github.workspace}}
-        echo "::debug::$(ls -alhR)"
+        echo "::debug::$(ls -lhR)"
