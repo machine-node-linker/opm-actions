@@ -1,0 +1,22 @@
+name: create-veneer
+description: Create OPM semver veneer if one doesnt exist
+inputs:
+  catalog:
+    description: "Path to catalog (releative to workspace)"
+    required: false
+    default: catalog
+  operator:
+    description: Name of operator
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        cd ${{github.workspace}}
+        mkdir -p ${{inputs.catalog}}/${{inputs.operator}}
+        cd ${{inputs.catalog}}/${{inputs.operator}}
+        if [ -z ${{inputs.operator}}.semvar-veneer.yaml ]; then
+          cp ${{github.action_path}}/tmplate.yaml ${{inputs.operator}}.semvar-veneer.yaml
+        fi
+        cd ${{github.workspace}}

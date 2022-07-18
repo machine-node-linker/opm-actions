@@ -5,13 +5,18 @@ inputs:
     description: Catalog Directory Path
     required: false
     default: catalog
+  operator:
+    description: Operator to render
+    required: true
 outputs:
-  error:
-    description: Will be emtpy unless there is an error
+  rendered:
+    description: Rendered JSON
 runs: 
   using: docker
   image: docker://ghcr.io/machine-node-linker/opm-actions:v1
   args:
-    - validate
-    - ${{inputs.catalog}}
-    - error
+    - alpha
+    - render-veneer
+    - semver
+    - ${{inputs.catalog}}/${{operator}}/${{operator}}.semvar-veneer.yaml
+    - rendered

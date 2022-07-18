@@ -71,6 +71,14 @@ do
                 *)
                     add_args $arg;;
             esac;;
+        "alpha")
+            case $LAST_ARG in
+                "semver")
+                    check_file $arg;;
+                *)
+                    add_args $LAST_ARG
+                    LAST_ARG=$arg;;
+            esac;;
         *)
             add_args $LAST_ARG $arg;;
     esac
