@@ -1,12 +1,8 @@
 name: Validate Catalog
 description: Validates OPM Catalog
 inputs:
-  catalog:
-    description: Catalog Directory Path
-    required: false
-    default: catalog
-  operator:
-    description: Operator to render
+  file:
+    description: Path to veneer yaml to render
     required: true
 outputs:
   rendered:
@@ -18,5 +14,5 @@ runs:
     - alpha
     - render-veneer
     - semver
-    - ${{inputs.catalog}}/${{inputs.operator}}/${{inputs.operator}}.semvar-veneer.yaml
+    - ${{inputs.file}}
     - rendered
