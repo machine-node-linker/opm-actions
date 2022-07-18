@@ -18,5 +18,5 @@ runs:
     - alpha
     - render-veneer
     - semver
-    - ${{inputs.catalog}}/${{operator}}/${{operator}}.semvar-veneer.yaml
+    - ${{inputs.catalog}}/${{inputs.operator}}/${{inputs.operator}}.semvar-veneer.yaml
     - rendered
