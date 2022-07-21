@@ -1,5 +1,5 @@
-name: create-veneer
-description: Create OPM semver veneer if one doesnt exist
+name: append-budnle
+description: add bundle to veneer
 inputs:
   catalog:
     description: "Path to catalog (releative to workspace)"
@@ -8,10 +8,20 @@ inputs:
   operator:
     description: Name of operator
     required: true
+  bundle:
+    description: "location of bundle image"
+    required: true
+  channel:
+    description: "Channel to Add Bundle To"
+    required: false
+    default: "candidate"
+
 runs:
   using: docker
   image: docker://grc.io/machine-node-linker/manage-veneer@v0.1
   args:
-    - create
+    - append
     - --file
     - ${{inputs.catalog}}/${{inputs.operator}}/${{inputs.operator}}.semvar-veneer.yaml
+    - --bundle
+    - ${{inputs.channel}}
