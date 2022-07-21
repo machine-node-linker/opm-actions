@@ -25,6 +25,7 @@ echo ::debug::Set output variable to $OUT
 ### Unset last arg from IN, removing it from array
 unset 'IN[${#IN[@]}-1]'
 
+
 declare -a ARGS
 COMMAND=${IN[0]}
 LAST_ARG=""
