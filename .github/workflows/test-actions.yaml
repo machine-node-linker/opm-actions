@@ -46,6 +46,7 @@ jobs:
     name: Test render-veneer-semver
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Render
         id: render
         uses: machine-node-linker/opm-actions/render-veneer-semver@v2
