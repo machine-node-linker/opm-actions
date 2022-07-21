@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       operator: test-operator
-      channel: stable 
+      channel: stable
     steps:
       - name: Make Package
         id: make
@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: Render
         id: render
-        uses: machine-node-linker/opm-actions/render-veneer-semver@v1
+        uses: machine-node-linker/opm-actions/render-veneer-semver@v1.1
         with:
           file: render-veneer-semver/test/test.veneer-semver.yaml
       - name: confirm output

@@ -24,7 +24,7 @@ jobs:
           major_pattern: "(Image MAJOR)"
           minor_pattern: "(Image MINOR)"
           format: "${major}.${minor}"
-          change_path: "Dockerfile entrypoint.sh"
+          change_path: ".src/Dockerfile .src/entrypoint.sh"
 
       - name: Tag Release
         uses: tvdias/github-tagger@v0.0.1
