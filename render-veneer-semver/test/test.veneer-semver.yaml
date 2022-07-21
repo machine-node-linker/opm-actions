@@ -1,5 +1,6 @@
 Schema: olm.semver
 GenerateMajorChannels: true
+GenerateMinorChannels: false
 Candidate:
   Bundles:
     - Image: quay.io/machine-node-linker/mnl-bundle:v0.3.13
