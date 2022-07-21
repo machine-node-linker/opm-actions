@@ -40,7 +40,7 @@ function check_file() {
         debug "File $1 not found, skipping $LAST_ARG"
         debug "PWD: $(pwd)"
         debug "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
-        debug "$(ls -lR)"
+        debug "$(ls -lR ../)"
         LAST_ARG=""
     fi
 }
