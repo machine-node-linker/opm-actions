@@ -10,7 +10,7 @@ inputs:
     required: true
 runs:
   using: docker
-  image: docker://grc.io/machine-node-linker/manage-veneer:v0.1
+  image: docker://ghcr.io/machine-node-linker/manage-veneer:v0.1
   args:
     - create
     - --file
