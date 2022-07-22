@@ -24,4 +24,4 @@ runs:
     - --file
     - ${{inputs.catalog}}/${{inputs.operator}}/${{inputs.operator}}.semvar-veneer.yaml
     - --bundle
-    - ${{inputs.channel}}
+    - ${{inputs.bundle}}

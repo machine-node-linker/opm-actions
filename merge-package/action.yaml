@@ -12,32 +12,30 @@ outputs:
     description: Combined JSON String
     value: ${{steps.last.outputs.value}}
 
-runs: 
+runs:
   using: composite
   steps:
+    - uses: edwardgeorge/jq-action@main
+      if: ${{inputs.package != ''}}
+      id: jq-package-icon
+      with:
+        input: ${{inputs.render}}
+        script: 'if .schema == "olm.package" then {''icon'': ${{toJSON(fromJSON(inputs.package).icon)}}} + . else . end'
+        compact: true
 
-      - uses: edwardgeorge/jq-action@main
-        if: ${{inputs.package != ''}}
-        id: jq-package-icon
-        with:
-          input: ${{inputs.rendered}}
-          script: "if .schema == \"olm.package\" then {'icon': ${{toJSON(fromJSON(inputs.package).icon)}}} + . else . end"
-          compact: true
+    - uses: edwardgeorge/jq-action@main
+      if: ${{inputs.package != ''}}
+      id: jq-package-description
+      with:
+        input: ${{steps.jq-package-icon.outputs.value}}
+        script: 'if .schema == "olm.package" then {''description'': ${{fromJSON(inputs.package).description}}} else . end'
+        compact: true
 
-      - uses: edwardgeorge/jq-action@main
-        if: ${{inputs.package != ''}}
-        id: jq-package-description
-        with:
-          input: ${{steps.jq-package-icon.outputs.value}}
-          script: "if .schema == \"olm.package\" then {'description': ${{fromJSON(inputs.package).description}}} else . end"
-          compact: true
-      
-      - id: last
-        shell: bash
-        run: |
-          if [ "${{steps.jq_package_description.outcome}}" == "skipped" ]; then
-            echo "::set-output name=value::${{inputs.render}}"
-          else
-            echo "::set-output name=value::${{steps.jq-package-description.outputs.value}}"
-          fi
-      
+    - id: last
+      shell: bash
+      run: |
+        if [ "${{steps.jq_package_description.outcome}}" == "skipped" ]; then
+          echo "::set-output name=value::${{inputs.render}}"
+        else
+          echo "::set-output name=value::${{steps.jq-package-description.outputs.value}}"
+        fi
