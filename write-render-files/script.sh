@@ -6,13 +6,13 @@ IFS=$'\n'
 files=(${RENDER})
 IFS=$TMPIFS
 
-echo ::debug::$(ls -r)
+echo ::debug::$(ls -lhR)
 ## Change Dir to catalog
 pushd ${DIR}
-echo ::debug::$(ls -r)
+echo ::debug::$(ls -lhR)
 
 ## Delete existing catalog dir
-find ./ -name '*.json' -depth 1 -type f -delete
+find ./ -name "*.json" -depth 1 -type f -delete
 
 ## Iterate over input array
 for data in ${files[@]}
