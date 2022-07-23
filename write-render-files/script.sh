@@ -1,16 +1,18 @@
 #!/bin/bash
-
+set -x
 ## Process input render var into array
 TMPIFS=$IFS
 IFS=$'\n' 
 files=(${RENDER})
 IFS=$TMPIFS
 
+echo ::debug::$(ls -r)
 ## Change Dir to catalog
 pushd ${DIR}
+echo ::debug::$(ls -r)
 
 ## Delete existing catalog dir
-find . -name '*.json' -depth 1 -type f -delete
+find ./ -name '*.json' -depth 1 -type f -delete
 
 ## Iterate over input array
 for data in ${files[@]}
