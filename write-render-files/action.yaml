@@ -20,7 +20,7 @@ runs:
     - shell: bash
       run: ${{github.action_path}}/script.sh
       env:
-        RENDER: ${{input.render}}
-        DIR: ${{input.directory}}
-        ICON: ${{input.icon}}
-        DESC: ${{input.description}}
+        RENDER: ${{inputs.render}}
+        DIR: ${{inputs.directory}}
+        ICON: ${{inputs.icon}}
+        DESC: ${{inputs.description}}
