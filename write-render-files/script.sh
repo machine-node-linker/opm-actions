@@ -24,7 +24,7 @@ do
 done
 
 ## Write icon and description Files
-echo $ICON | base64 -d > iconfile
-echo $DESC | base64 -d > descriptionfile
+echo -n $ICON | base64 -d > iconfile
+echo -n $DESC | base64 -d > descriptionfile
 
 popd
