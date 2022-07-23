@@ -1,0 +1,26 @@
+name: Validate Catalog
+description: Validates OPM Catalog
+inputs:
+  render:
+    description: Rendered Catalog JSON (newline separated)
+    required: true
+  directory:
+    description: path to write render files
+    required: true
+  icon:
+    description: base64 encoded data for icon file
+    required: false
+  description:
+    description: base64 encoded data for description data
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: ${{github.action_path}}/script.sh
+      env:
+        RENDER: ${{input.render}}
+        DIR: ${{input.directory}}
+        ICON: ${{input.icon}}
+        DESC: ${{input.description}}

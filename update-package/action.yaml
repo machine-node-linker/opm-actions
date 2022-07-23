@@ -1,0 +1,22 @@
+name: update-package
+description: update package file
+inputs:
+  catalog:
+    description: "Path to catalog (releative to workspace)"
+    required: false
+    default: catalog
+  operator:
+    description: Name of operator
+    required: true
+
+runs:
+  using: docker
+  image: docker://ghcr.io/machine-node-linker/manage-package:v0.1
+  args:
+    - update
+    - --file
+    - ${{inputs.catalog}}/${{inputs.operator}}/package.json
+    - --icon
+    - ${{inputs.catalog}}/${{inputs.operator}}/iconfile
+    - --description
+    - ${{inputs.catalog}}/${{inputs.operator}}/descriptionfile
