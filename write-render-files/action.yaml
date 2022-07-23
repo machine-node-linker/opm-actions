@@ -18,7 +18,7 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: sudo ${{github.action_path}}/script.sh
+      run: sudo -E ${{github.action_path}}/script.sh
       env:
         RENDER: ${{inputs.render}}
         DIR: ${{inputs.directory}}
