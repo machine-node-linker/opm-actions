@@ -8,7 +8,7 @@ IFS=$TMPIFS
 
 echo ::debug::$(ls -lhR)
 ## Change Dir to catalog
-chmod -Rv --preserve-root a+rwX ${DIR}
+sudo chmod -Rv --preserve-root a+rwX ${DIR}
 pushd ${DIR}
 
 ## Delete existing catalog dir
