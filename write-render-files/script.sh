@@ -8,8 +8,8 @@ IFS=$TMPIFS
 
 echo ::debug::$(ls -lhR)
 ## Change Dir to catalog
+chmod -Rv --preserve-root a+rwX ${DIR}
 pushd ${DIR}
-echo ::debug::$(ls -lhR)
 
 ## Delete existing catalog dir
 find ./ -name "*.json" -depth 1 -type f -delete
