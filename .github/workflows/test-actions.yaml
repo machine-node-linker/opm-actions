@@ -22,26 +22,6 @@ on:
       - completed
 
 jobs:
-  test-make-package:
-    name: Test make-package action
-    runs-on: ubuntu-latest
-    env:
-      operator: test-operator
-      channel: stable
-    steps:
-      - name: Make Package
-        id: make
-        uses: machine-node-linker/opm-actions/make-package@v2
-        with:
-          operator: ${{env.operator}}
-          channel: ${{env.channel}}
-      - name: validate
-        env: ${{fromJSON(steps.make.outputs.package)}}
-        run: |
-          set -e
-          test ${{env.schema}} == "olm.package"
-          test ${{env.name}} == ${{env.operator}}
-          test ${{env.defaultChannel}} == ${{env.channel}}
   test-render-veneer-semver:
     name: Test render-veneer-semver
     runs-on: ubuntu-latest
