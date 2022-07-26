@@ -26,7 +26,15 @@ do
 done
 
 ## Write icon and description Files
-echo -n $ICON | base64 -d > iconfile
-echo -n $DESC | base64 -d > descriptionfile
+if [ "$ICON" != "" ] ; then
+    echo -n $ICON | base64 -d > iconfile
+else
+    touch iconfile
+fi
+if [ "$DESC" != "" ]; then 
+    echo -n $DESC | base64 -d > descriptionfile
+else
+    touch descriptionfile
+fi
 
 popd
