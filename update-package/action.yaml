@@ -11,7 +11,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://ghcr.io/machine-node-linker/manage-package:v0.1
+  image: docker://ghcr.io/machine-node-linker/manage-package:v0.2
   args:
     - update
     - --file
