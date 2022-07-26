@@ -1,0 +1,23 @@
+name: GH File Output
+description: Put Contents of File in output var
+inputs:
+  file:
+    description: filename to read
+    required: true
+  base64encode:
+    description: should output be base64 encoded
+    required: false
+    default: "true"
+outputs:
+  output:
+    description: The contents of the file
+    value: ${{steps.output.outputs.output}}
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: ${{github.action_path}}/script.sh
+      env:
+        FILE: ${{inputs.file}}
+        B64: ${{inputs.base64encode}}

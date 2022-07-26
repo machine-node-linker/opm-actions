@@ -1,5 +1,5 @@
-name: Validate Catalog
-description: Validates OPM Catalog
+name: Write OPM Render Files
+description: Write OPM Render Files
 inputs:
   render:
     description: Rendered Catalog JSON (newline separated)
