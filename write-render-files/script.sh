@@ -12,7 +12,7 @@ sudo chmod -Rv --preserve-root a+rwX ${DIR}
 pushd ${DIR}
 
 ## Delete existing catalog dir
-find $PWD -name "*.json" -depth 1 -type f -delete
+find $PWD -name "*.json" -type f -delete
 
 ## Iterate over input array
 for data in ${files[@]}
