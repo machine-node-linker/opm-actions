@@ -10,7 +10,7 @@ outputs:
     description: Will be emtpy unless there is an error
 runs:
   using: docker
-  image: docker://ghcr.io/machine-node-linker/opm-actions:v2
+  image: docker://ghcr.io/machine-node-linker/opm-actions:v1
   args:
     - validate
     - ${{inputs.catalog}}
