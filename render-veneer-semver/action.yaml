@@ -12,9 +12,9 @@ runs:
   image: docker://ghcr.io/machine-node-linker/opm-actions:v1
   args:
     - alpha
-    - render-veneer
+    - render-template
     - semver
     - ${{inputs.file}}
-    - rendered
+    - renderfile
   env:
-    out_file: process.env['RUNNER_TEMP']/rendered-semver.json
+    out_file: ${{runner.temp}}/rendered-semver.json
