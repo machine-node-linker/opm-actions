@@ -5,7 +5,7 @@ inputs:
     description: Path to veneer yaml to render
     required: true
 outputs:
-  rendered:
+  renderfile:
     description: Rendered JSON
 runs:
   using: docker
@@ -17,4 +17,4 @@ runs:
     - ${{inputs.file}}
     - renderfile
   env:
-    out_file: ${{runner.temp}}/rendered-semver.json
+    out_file: ${RENDER_TEMP}/rendered-semver.json
