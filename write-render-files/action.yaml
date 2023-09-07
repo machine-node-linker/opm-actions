@@ -1,8 +1,8 @@
 name: Write OPM Render Files
 description: Write OPM Render Files
 inputs:
-  render:
-    description: Rendered Catalog JSON (newline separated)
+  render_path:
+    description: Path to Rendered Catalog JSON (newline separated)
     required: true
   directory:
     description: path to write render files
@@ -20,7 +20,7 @@ runs:
     - shell: bash
       run: ${{github.action_path}}/script.sh
       env:
-        RENDER: ${{inputs.render}}
+        RENDER_PATH: ${{inputs.render_path}}
         DIR: ${{inputs.directory}}
         ICON: ${{inputs.icon}}
         DESC: ${{inputs.description}}

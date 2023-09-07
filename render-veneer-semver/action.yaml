@@ -16,3 +16,5 @@ runs:
     - semver
     - ${{inputs.file}}
     - rendered
+  env:
+    out_file: process.env['RUNNER_TEMP']/rendered-semver.json

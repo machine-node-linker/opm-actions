@@ -19,9 +19,9 @@ inputs:
 outputs:
   package:
     description: JSON Package Data
-runs: 
+runs:
   using: docker
-  image: docker://ghcr.io/machine-node-linker/opm-actions:v1
+  image: docker://ghcr.io/machine-node-linker/opm-actions:v2
   args:
     - init
     - ${{inputs.operator}}

@@ -27,4 +27,4 @@ output="${output//'%'/'%25'}"
 output="${output//$'\n'/'%0A'}"
 output="${output//$'\r'/'%0D'}"
 debug "gh output encoded file contents: $output" 
-echo "::set-output name=output::$output"
+echo "output=$output" >> $GITHUB_OUTPUT

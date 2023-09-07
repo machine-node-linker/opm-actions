@@ -3,7 +3,7 @@ set -x
 ## Process input render var into array
 TMPIFS=$IFS
 IFS=$'\n' 
-files=(${RENDER})
+files=($(cat ${RENDER_FILE}))
 IFS=$TMPIFS
 
 echo ::debug::$(ls -lhR)

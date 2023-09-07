@@ -8,9 +8,9 @@ inputs:
 outputs:
   error:
     description: Will be emtpy unless there is an error
-runs: 
+runs:
   using: docker
-  image: docker://ghcr.io/machine-node-linker/opm-actions:v1
+  image: docker://ghcr.io/machine-node-linker/opm-actions:v2
   args:
     - validate
     - ${{inputs.catalog}}

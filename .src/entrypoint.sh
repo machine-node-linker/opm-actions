@@ -113,8 +113,14 @@ fi
 ### Set OPM output to github output based on name captured earlier
 
 output=$(/bin/opm ${ARGS[*]}|jq -crM)
-output="${output//'%'/'%25'}"
-output="${output//$'\n'/'%0A'}"
-output="${output//$'\r'/'%0D'}"
-echo "::set-output name=$OUT::$output"
+
+if [ -z ${out_file} ]; then 
+    echo ${output} > ${out_file}
+    echo ${$OUT=$out_file} >> $GITHUB_OUTPUT
+else 
+    output="${output//'%'/'%25'}"
+    output="${output//$'\n'/'%0A'}"
+    output="${output//$'\r'/'%0D'}"
+    echo "$OUT=$output" >> $GITHUB_OUTPUT
+fi
 exit 0
