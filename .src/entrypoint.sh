@@ -114,7 +114,7 @@ fi
 
 output=$(/bin/opm ${ARGS[*]}|jq -crM)
 
-if [ -z ${out_file} ]; then 
+if [ -n ${out_file} ]; then 
     echo ${output} > ${out_file}
     echo ${$OUT=$out_file} >> $GITHUB_OUTPUT
 else 
