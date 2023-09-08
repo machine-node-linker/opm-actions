@@ -122,6 +122,6 @@ else
     output="${output//'%'/'%25'}"
     output="${output//$'\n'/'%0A'}"
     output="${output//$'\r'/'%0D'}"
-    echo "$OUT=$output" >> $GITHUB_OUTPUT
+    echo "${OUT}=${output}" >> $GITHUB_OUTPUT
 fi
 exit 0
