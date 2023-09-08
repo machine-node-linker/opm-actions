@@ -35,4 +35,4 @@ jobs:
       - name: confirm output
         run: |
           set -e
-          test "${{steps.render.outputs.rendered}}" != ""
+          test "${{steps.render.outputs.renderfile}}" != ""

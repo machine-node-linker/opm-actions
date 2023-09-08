@@ -115,6 +115,7 @@ fi
 output=$(/bin/opm ${ARGS[*]}|jq -crM)
 
 if [ -n ${out_file} ]; then 
+    out_file=${RENDER_TEMP}/${out_file}
     echo ${output} > ${out_file}
     echo ${$OUT=$out_file} >> $GITHUB_OUTPUT
 else 
