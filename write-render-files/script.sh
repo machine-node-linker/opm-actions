@@ -1,5 +1,11 @@
 #!/bin/bash
 set -x
+
+if [ ! -f ${RENDERFILE} ]; then
+    echo "::error:: ${RENDERFILE} does not exist"
+    exit 1
+fi
+
 ## Process input render var into array
 TMPIFS=$IFS
 IFS=$'\n' 
@@ -38,3 +44,5 @@ else
 fi
 
 popd
+
+rm ${RENDERFILE}
