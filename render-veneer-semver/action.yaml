@@ -17,4 +17,4 @@ runs:
     - ${{inputs.file}}
     - renderfile
   env:
-    out_file: ${RUNNER_TEMP}/rendered-semver.json
+    out_file: rendered-semver.json
