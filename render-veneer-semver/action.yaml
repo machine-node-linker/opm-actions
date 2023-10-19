@@ -1,5 +1,5 @@
-name: Validate Catalog
-description: Validates OPM Catalog
+name: Render SemVer Veneer
+description: Render SemVer Veneer into json file
 inputs:
   file:
     description: Path to veneer yaml to render
@@ -17,4 +17,4 @@ runs:
     - ${{inputs.file}}
     - renderfile
   env:
-    out_file: rendered-semver.json
+    out_file: ./rendered-semver.json
