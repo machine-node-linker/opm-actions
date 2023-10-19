@@ -21,7 +21,7 @@ debug "Received Args: ${IN[*]}"
 ### Set OUT to last item in input args
 OUT=${IN[${#IN[@]}-1]}
 
-echo ::debug::Set output variable to $OUT
+debug Set output variable to $OUT
 ### Unset last arg from IN, removing it from array
 unset 'IN[${#IN[@]}-1]'
 
@@ -114,7 +114,8 @@ fi
 
 output=$(/bin/opm ${ARGS[*]}|jq -crM)
 
-if [ -n ${out_file} ]; then 
+if [ ${out_file} ]; then 
+    debug "Writing output to ${outfile}"
     out_file=./${out_file}
     echo ${output} > ${out_file}
     echo "${OUT}=${out_file}" >> $GITHUB_OUTPUT
