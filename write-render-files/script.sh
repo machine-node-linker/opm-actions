@@ -8,9 +8,11 @@ fi
 
 ## Process input render var into array
 TMPIFS=$IFS
-IFS=$'\n' 
-files=($(cat ${RENDERFILE}))
+IFS=$'\n'
+files=($(cat ${RENDERFILE} | jq -c '.'))
 IFS=$TMPIFS
+
+echo "::debug::len ${#files[@]}"
 
 echo ::debug::$(ls -lhR)
 ## Change Dir to catalog
@@ -21,7 +23,7 @@ pushd ${DIR}
 find $PWD -name "*.json" -type f -delete
 
 ## Iterate over input array
-for data in ${files[@]}
+for data in "${files[@]}"
 do
     ## Set filename from schema
     file="$(echo $data | jq .schema)"

@@ -1,0 +1,863 @@
+{
+    "schema": "olm.package",
+    "name": "machine-node-linker",
+    "defaultChannel": "stable-v0"
+}
+{
+    "schema": "olm.channel",
+    "name": "candidate-v0",
+    "package": "machine-node-linker",
+    "entries": [
+        {
+            "name": "machine-node-linker.v0.3.2"
+        },
+        {
+            "name": "machine-node-linker.v0.3.4"
+        },
+        {
+            "name": "machine-node-linker.v0.3.5"
+        },
+        {
+            "name": "machine-node-linker.v0.3.6"
+        },
+        {
+            "name": "machine-node-linker.v0.3.7"
+        },
+        {
+            "name": "machine-node-linker.v0.3.8"
+        },
+        {
+            "name": "machine-node-linker.v0.3.9"
+        },
+        {
+            "name": "machine-node-linker.v0.3.11"
+        },
+        {
+            "name": "machine-node-linker.v0.3.13",
+            "skips": [
+                "machine-node-linker.v0.3.11",
+                "machine-node-linker.v0.3.2",
+                "machine-node-linker.v0.3.4",
+                "machine-node-linker.v0.3.5",
+                "machine-node-linker.v0.3.6",
+                "machine-node-linker.v0.3.7",
+                "machine-node-linker.v0.3.8",
+                "machine-node-linker.v0.3.9"
+            ]
+        }
+    ]
+}
+{
+    "schema": "olm.channel",
+    "name": "fast-v0",
+    "package": "machine-node-linker",
+    "entries": [
+        {
+            "name": "machine-node-linker.v0.3.2"
+        },
+        {
+            "name": "machine-node-linker.v0.3.7"
+        },
+        {
+            "name": "machine-node-linker.v0.3.9"
+        },
+        {
+            "name": "machine-node-linker.v0.3.13",
+            "skips": [
+                "machine-node-linker.v0.3.2",
+                "machine-node-linker.v0.3.7",
+                "machine-node-linker.v0.3.9"
+            ]
+        }
+    ]
+}
+{
+    "schema": "olm.channel",
+    "name": "stable-v0",
+    "package": "machine-node-linker",
+    "entries": [
+        {
+            "name": "machine-node-linker.v0.3.2"
+        },
+        {
+            "name": "machine-node-linker.v0.3.13",
+            "skips": [
+                "machine-node-linker.v0.3.2"
+            ]
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.11",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.11",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.11"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.11"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.11"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.13",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.13",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.13"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.13"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.13"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.2",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.2",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.2"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.2"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.2"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.4",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.4",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.4"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.4"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.4"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.5",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.5",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.5"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.5"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.5"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.6",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.6",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.6"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.6"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.6"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.7",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.7",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.7"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.7"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.7"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.8",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.8",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.8"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.8"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.8"
+        }
+    ]
+}
+{
+    "schema": "olm.bundle",
+    "name": "machine-node-linker.v0.3.9",
+    "package": "machine-node-linker",
+    "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.9",
+    "properties": [
+        {
+            "type": "olm.package",
+            "value": {
+                "packageName": "machine-node-linker",
+                "version": "0.3.9"
+            }
+        },
+        {
+            "type": "olm.csv.metadata",
+            "value": {
+                "annotations": {
+                    "alm-examples": "[]",
+                    "capabilities": "Basic Install",
+                    "operatorframework.io/cluster-monitoring": "true",
+                    "operatorframework.io/suggested-namespace": "machine-node-linker",
+                    "operators.operatorframework.io/builder": "operator-sdk-v1.22.0",
+                    "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3"
+                },
+                "apiServiceDefinitions": {},
+                "crdDescriptions": {},
+                "description": "Simple Controller to link Machine and Node for CSR Approvals",
+                "displayName": "Machine Node Linker",
+                "installModes": [
+                    {
+                        "type": "OwnNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "SingleNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "MultiNamespace",
+                        "supported": false
+                    },
+                    {
+                        "type": "AllNamespaces",
+                        "supported": true
+                    }
+                ],
+                "keywords": [
+                    "openshift",
+                    "machine",
+                    "machine-api",
+                    "csr-approver"
+                ],
+                "links": [
+                    {
+                        "name": "Machine Node Noop",
+                        "url": "github.com/machine-node-linker/machine-node-linker"
+                    }
+                ],
+                "maintainers": [
+                    {
+                        "name": "Jason Ross",
+                        "email": "machine-node-linker@csfreak.com"
+                    }
+                ],
+                "maturity": "alpha",
+                "provider": {
+                    "name": "Jason Ross"
+                }
+            }
+        }
+    ],
+    "relatedImages": [
+        {
+            "name": "",
+            "image": "gcr.io/kubebuilder/kube-rbac-proxy:v0.11.0"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-bundle:v0.3.9"
+        },
+        {
+            "name": "",
+            "image": "quay.io/machine-node-linker/mnl-controller:v0.3.9"
+        }
+    ]
+}

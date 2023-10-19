@@ -36,3 +36,21 @@ jobs:
         run: |
           set -e
           test "${{steps.render.outputs.renderfile}}" != ""
+
+  test-write-render-files:
+    name: Test write-render-files
+    runs-on: ubunutu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: write-files
+        id: write
+        uses: machine-node-linker/opm-actions/write-render-files@v2
+        with:
+          renderfile: write-render-files/test/rendered.json
+          directory: ${{runner.temp}}
+      - name: confirm output
+        run: |
+          set -e
+          test -f "${{runner.temp}}/package.json"
+          test -f "${{runner.temp}}/bundle.json"
+          test -f "${{runner.temp}}/channel.json"
