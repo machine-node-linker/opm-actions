@@ -44,3 +44,5 @@ else
 fi
 
 popd
+
+rm ${RENDERFILE}
