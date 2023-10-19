@@ -39,7 +39,7 @@ jobs:
 
   test-write-render-files:
     name: Test write-render-files
-    runs-on: ubunutu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: write-files
